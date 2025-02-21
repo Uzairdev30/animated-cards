@@ -1,0 +1,168 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #333; /* Default text color for light mode */
+  }
+  
+  .mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: black;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    outline: none;
+  }
+  
+  .card-container {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .card {
+    width: 300px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.3), -15px -15px 40px rgba(255, 255, 255, 0.1);
+  }
+  
+  .card-header {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 15px;
+  }
+  
+  .card-body {
+    padding: 20px;
+    text-align: center;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  
+  .card-body p {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 10px 0;
+    color: #333; /* Light mode text color */
+  }
+  
+  .card-body .temperature {
+    font-size: 30px;
+    font-weight: 700;
+    color: #2C3E50;
+  }
+  
+  /* Micro-interactions */
+  .card:hover .card-body {
+    opacity: 1;
+  }
+  
+  .card:active {
+    transform: scale(0.98);
+  }
+  
+  .card-header h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .card-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .card-body li {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 8px 0;
+    color: black;
+  }
+  
+  /* Custom hover color for each card */
+  .weather-card:hover .card-body p {
+    color: #3498db;
+  }
+  
+  .time-card:hover .card-body p {
+    color: #f39c12;
+  }
+  
+  .tasks-card:hover .card-body p {
+    color: #27ae60;
+  }
+  
+  /* Dark Mode and Light Mode */
+  body.dark-mode {
+    background-color: #2c3e50;
+    color: #ecf0f1; /* Dark mode text color */
+  }
+  
+  body.dark-mode .mode-toggle {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  body.dark-mode .card {
+    background: rgba(44, 62, 80, 0.3);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3), -10px -10px 30px rgba(255, 255, 255, 0.1);
+  }
+  
+  body.dark-mode .card-header {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Change text color in dark mode */
+  body.dark-mode .card-body p {
+    color: #ecf0f1; /* Dark mode text color */
+  }
+  
+  body.dark-mode .card-body .temperature {
+    color: #fff;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card-body p,
+  .card-body ul {
+    animation: fadeIn 1s ease-out;
+    animation-delay: 0.3s;
+  }
+  
